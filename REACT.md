@@ -5,7 +5,6 @@
 - [Effect](#effect-hook)
 - [LifeCycleCallbacks](#lifecycle)
 
-<br />
 ## Reconciliation <a name="reconciliation"></a>
 React implements its DOM reconciliation algorithm based on two assumptions:
 - Two elements of different types will produce different trees.<br />
