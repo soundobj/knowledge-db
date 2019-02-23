@@ -1,2 +1,5 @@
 # knowledge-db
-tips for interviews etc
+Tips for interviews etc  
+This docs are divided in sections:  
+- [Js](./JS.md)  
+
