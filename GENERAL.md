@@ -15,10 +15,10 @@ Closed for modification means that we should not introduce breaking changes to e
 Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.<br />
 If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program<br />
 In other words, as simple as that, a subclass should override the parent class methods in a way that does not break functionality from a client’s point of view.<br />
- - **Interface segregation principle**:
+ - **Interface segregation principle**:<br />
 A client should never be forced to implement an interface that it doesn’t use or clients shouldn’t be forced to depend on methods they do not use.<br />
 Many client-specific interfaces are better than one general-purpose interface.<br />
-- **Dependency Inversion Principle**:
+- **Dependency Inversion Principle**:<br />
 Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions.<br />
 Use an adpater or interface to decouple different layers of the system.<br />
 Abstractions should not depend on details. Details should depend on abstractions<br />
