@@ -47,7 +47,8 @@ async function fetchContent() {
 var promise = fetchContent().then(...);
 ```
 <br />
-## Event listeners <a name="js-events"></a>
+## Event listeners <a name="js-events"></a><br />
+
 - The addEventListener method is the most preferred way to add an event listener to window, document or any other element in the DOM.<br />
 - Sometime we don’t want an HTML element to behave in the way it is supposed to behave in default. In such a case, we can use Event.preventDefault().<br />
 - In order to remove an event listener from an element, we need to call the removeEventListener method with the event name and the function name.<br />
@@ -85,6 +86,7 @@ function screenTest(e) {
 mql.addListener(screenTest);
 ```
 <br />
-## Symbols <a name="symbols"></a>
+## Symbols <a name="symbols"></a><br />
+
 - Every symbol value returned from Symbol() is unique.  A symbol value may be used as an identifier for object properties; this is the data type's only purpose. <br />
 - if you want to have unique object keys that cannot be overriden unless using the symbol that created it. see [https://www.youtube.com/watch?v=DHrYasp1OTw]<br />
