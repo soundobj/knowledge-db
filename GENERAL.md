@@ -1,5 +1,7 @@
 # Table of Contents
-1. [SOLID principles](#solid)
+- [SOLID principles](#solid)
+- [Continous Delivery](#cd)
+- [Continous Integration](#ci)
 
 ## SOLID principles <a name="solid"></a>
 - **Single responsibility principle**:<br />
@@ -18,9 +20,16 @@ In other words, as simple as that, a subclass should override the parent class m
  - **Interface segregation principle**:<br />
 A client should never be forced to implement an interface that it doesn’t use or clients shouldn’t be forced to depend on methods they do not use.<br />
 Many client-specific interfaces are better than one general-purpose interface.<br />
+Think about whether your abstractions are reusable and composable, and whether your objects are encapsulated and cohesive<br />
 - **Dependency Inversion Principle**:<br />
 Entities must depend on abstractions not on concretions. It states that the high level module must not depend on the low level module, but they should depend on abstractions.<br />
 Use an adpater or interface to decouple different layers of the system.<br />
 Abstractions should not depend on details. Details should depend on abstractions<br />
 It means that if the details change they should not affect the abstraction. The abstraction is the way clients view an object. Exactly what goes on inside the object is not important. Lets take a car for example, the pedals and steering wheel and gear lever are abstractions of what happens inside the engine. They do not depend on the details though because if someone changes my old engine for a new one I should still be able to drive the car without knowing that the engine changed.<br />
 The details on the other hand MUST conform to what the abstraction says. I would not want to implement an engine that suddenly causes the brakes to double the speed of the car. I can re-implement brakes any way I want as long as externally they behave the same way.<br />
+## Continous Delivery <a name="cd"></a>
+Continuous delivery (CD or CDE) is a software engineering approach in which teams produce software in short cycles, ensuring that the software can be reliably released at any time and, when releasing the software, doing so manually. It aims at building, testing, and releasing software with greater speed and frequency. The approach helps reduce the cost, time, and risk of delivering changes by allowing for more incremental updates to applications in production. A straightforward and repeatable deployment process is important for continuous delivery.<br />
+## Continous Integration <a name="ci"></a>
+continuous integration (CI) is the practice of merging all developer working copies to a shared mainline several times a day.<br />
+The main aim of CI is to prevent integration problems, referred to as "integration hell" in early descriptions of XP. CI is not universally accepted as an improvement over frequent integration, so it is important to distinguish between the two as there is disagreement about the virtues of each.<br />
+Another factor is the need for a version control system that supports atomic commits, i.e. all of a developer's changes may be seen as a single commit operation. There is no point in trying to build from only half of the changed files.<br />
