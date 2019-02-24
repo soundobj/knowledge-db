@@ -6,7 +6,9 @@
 - [Event listeners](#js-events)
 - [MediaQueryList.addListener()](#mql)
 - [Symbols](#symbols)
-
+- [Rest parameter Spread operator](#rest-spread)
+- [Object prototype](#prototype)
+- [Apply vs Call](#apply-call)
 ## Event Loop<a name="event-loop"></a>
 JavaScript is a single thread programming language. The reason we can deal with concurrency and asynchonous tasks is because the browser is much more than just the runtime. There are WebApis in the browser: DOM, XHR, setTimeout. These are effectively threads that you can make calls to. When you make a call to one of these APIs  They push your callback to the task queue. then the event loop looks at the stack and the task queue, if the stack is empty it then puts the first item of the task queue into the stack.<br />
 There reason sometimes we run code inside setTimeout(() => {}, 0); is that we want to defer its execution until the stack is clear.<br />
@@ -91,3 +93,32 @@ mql.addListener(screenTest);
 
 - Every symbol value returned from Symbol() is unique.  A symbol value may be used as an identifier for object properties; this is the data type's only purpose. <br />
 - if you want to have unique object keys that cannot be overriden unless using the symbol that created it. see [https://www.youtube.com/watch?v=DHrYasp1OTw]<br />
+## Rest and Spread params <a name="rest-spread"></a>
+- **Rest parameter:** collects all remaining elements into an array.<br />
+- The downside of using the arguments keyword is that, it returns an array-like object; this means you essentially cannot perform any array-methods like; Array.filer, Array.map. Another pitfall, is that we cannot use arguments in arrow functions. This is because arrow-functions do not have their own this, and hence no arguments object either.<br />
+
+- **Spread operator**: allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements.<br />
+- You could add elements to an existing array ```newArr = ["foo", ...arr]```
+- You can copy arrays ```arr2 = [...arr]``` changes to arr2 will not have an effect in arr
+## Object prototype <a name="prototype"></a>
+Person.prototype is an object shared by all instances of Person. It forms part of a lookup chain (that has a special name, "prototype chain"): any time you attempt to access a property of Person that isn't set, JavaScript will check Person.prototype to see if that property exists there instead. As a result, anything assigned to Person.prototype becomes available to all instances of that constructor via the this object.<br />
+
+This is an incredibly powerful tool. JavaScript lets you modify something's prototype at any time in your program, which means you can add extra methods to existing objects at runtime:<br />
+## Apply vs Call  <a name="apply-call"></a>
+```
+theFunction.apply(valueForThis, arrayOfArgs)
+
+theFunction.call(valueForThis, arg1, arg2, ...)
+```
+<!-- -->
+
+## Inner functions  <a name="innerF"></a>
+-JavaScript function declarations are allowed inside other functions<br />
+- nested functions in JavaScript is that they can access variables in their parent function's scope:<br />
+- This provides a great deal of utility in writing more maintainable code. If a called function relies on one or two other functions that are not useful to any other part of your code, you can nest those utility functions inside it. This keeps the number of functions that are in the global scope down, which is always a good thing.<br />
+
+- This is also a great counter to the lure of global variables. When writing complex code it is often tempting to use global variables to share values between multiple functions — which leads to code that is hard to maintain. Nested functions can share variables in their parent, so you can use that mechanism to couple functions together when it makes sense without polluting your global namespace — "local globals" if you like. This technique should be used with caution, but it's a useful ability to have.<br />
+## Closures <a name="closures"></a>
+- When a function (foo) declares other functions (bar and baz), the family of local variables created in foo is not destroyed when the function exits. The variables merely become invisible to the outside world. Foo can therefore cunningly return the functions bar and baz, and they can continue to read, write and communicate with each other through this closed-off family of variables ("the closure") that nobody else can meddle with, not even someone who calls foo again in future.<br />
+
+- A closure is one way of supporting first-class functions; it is an expression that can reference variables within its scope (when it was first declared), be assigned to a variable, be passed as an argument to a function, or be returned as a function result.<br />
