@@ -87,4 +87,5 @@ mql.addListener(screenTest);
 <br />
 ## Symbols <a name="symbols"></a>
 - Every symbol value returned from Symbol() is unique.  A symbol value may be used as an identifier for object properties; this is the data type's only purpose. <br />
-- if you want to have unique object keys that cannot be overriden unless using the symbol that created it. see [![](http://img.youtube.com/vi/DHrYasp1OTw/0.jpg)](http://www.youtube.com/watch?v=DHrYasp1OTw "")<br />
+- if you want to have unique object keys that cannot be overriden unless using the symbol that created it. see [https://www.youtube.com/watch?v=DHrYasp1OTw]<br />
+[![Symbols](http://img.youtube.com/vi/DHrYasp1OTw/0.jpg)](http://www.youtube.com/watch?v=DHrYasp1OTw "Symbols")<br />
