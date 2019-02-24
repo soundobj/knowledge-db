@@ -5,8 +5,15 @@
 - [async await](#async)
 
 ## Event Loop<a name="event-loop"></a>
-JavaScript is a single thread programming language. The reason we can deal with concurrency and asynchonous tasks is because the browser is much more than just the runtime. There are WebApis in the browser: DOM, ajax, setTimeout. These are effectively threads that you can make calls to. When you make a call to one of these APIs  They push your callback to the task queue. then the event loop looks at the stack and the task queue, if the stack is empty it then puts the first item of the task queue into the stack.<br />
+JavaScript is a single thread programming language. The reason we can deal with concurrency and asynchonous tasks is because the browser is much more than just the runtime. There are WebApis in the browser: DOM, XHR, setTimeout. These are effectively threads that you can make calls to. When you make a call to one of these APIs  They push your callback to the task queue. then the event loop looks at the stack and the task queue, if the stack is empty it then puts the first item of the task queue into the stack.<br />
 There reason sometimes we run code inside setTimeout(() => {}, 0); is that we want to defer its execution until the stack is clear.<br />
+```setTimeout()``` is not a guaranteed time to execution , its a minimum time to execution. I.E. if you call multiple setTimeouts and they are in the Callback queuethen they are put back in the call stack sequentially and so they wait until the earliest callback is executed.<br />
+Callbacks can be two things:<br />
+- any function that another function calls.<br />
+- a function that is async and its put into the callback queue.<br />
+The Browser optimally would like to repaint every 16 milliseconds but it cannot do it if there is code in the stack.<br />
+The repaint of render queue is given priority over the callback queue.<br />
+- Don't put slow code in the stack because it will block the render Queue and the page will become unresponsive.<br />
 ## Hoisting <a name="hoisting"></a>
 - Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.<br />
 - In JavaScript, an undeclared variable is assigned the value undefined at execution and is also of type undefined.<br />
