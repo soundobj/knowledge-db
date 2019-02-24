@@ -7,3 +7,5 @@ This docs are divided in sections:
 - [Git](./GIT.md)  
 - [Bash](./BASH.md)  
 - [General](./GENERAL.md)  
+
+Use [http://embedyoutube.org/] to embed vides on Markdown.

@@ -5,6 +5,7 @@
 - [async await](#async)
 - [Event listeners](#js-events)
 - [MediaQueryList.addListener()](#mql)
+- [Symbols](#symbols)
 
 ## Event Loop<a name="event-loop"></a>
 JavaScript is a single thread programming language. The reason we can deal with concurrency and asynchonous tasks is because the browser is much more than just the runtime. There are WebApis in the browser: DOM, XHR, setTimeout. These are effectively threads that you can make calls to. When you make a call to one of these APIs  They push your callback to the task queue. then the event loop looks at the stack and the task queue, if the stack is empty it then puts the first item of the task queue into the stack.<br />
@@ -21,7 +22,7 @@ The repaint of render queue is given priority over the callback queue.<br />
 - In JavaScript, an undeclared variable is assigned the value undefined at execution and is also of type undefined.<br />
 - function declarations are hoisted ```function foo()``` but funtion expressions are not ``` var foo = function()```<br />
 
-## Strict mode <a  name="stric"></a>
+## Strict mode <a  name="strict"></a>
 Strict mode makes several changes to normal JavaScript semantics:<br />
 
 - Eliminates some JavaScript silent errors by changing them to throw errors.<br />
@@ -83,3 +84,7 @@ function screenTest(e) {
 
 mql.addListener(screenTest);
 ```
+<br />
+## Symbols <a name="symbols"></a>
+- Every symbol value returned from Symbol() is unique.  A symbol value may be used as an identifier for object properties; this is the data type's only purpose. <br />
+- if you want to have unique object keys that cannot be overriden unless using the symbol that created it. see [![](http://img.youtube.com/vi/DHrYasp1OTw/0.jpg)](http://www.youtube.com/watch?v=DHrYasp1OTw "")<br />
