@@ -3,6 +3,8 @@
 - [Hoisting](#hoisting)
 - [Strict mode](#strict)
 - [async await](#async)
+- [Event listeners](#js-events)
+- [MediaQueryList.addListener()](#mql)
 
 ## Event Loop<a name="event-loop"></a>
 JavaScript is a single thread programming language. The reason we can deal with concurrency and asynchonous tasks is because the browser is much more than just the runtime. There are WebApis in the browser: DOM, XHR, setTimeout. These are effectively threads that you can make calls to. When you make a call to one of these APIs  They push your callback to the task queue. then the event loop looks at the stack and the task queue, if the stack is empty it then puts the first item of the task queue into the stack.<br />
@@ -42,4 +44,42 @@ async function fetchContent() {
 
 // Use the async function
 var promise = fetchContent().then(...);
+```
+<br />
+## Event listeners <a name="js-events"></a>
+- The addEventListener method is the most preferred way to add an event listener to window, document or any other element in the DOM.<br />
+- Sometime we don’t want an HTML element to behave in the way it is supposed to behave in default. In such a case, we can use Event.preventDefault().<br />
+- In order to remove an event listener from an element, we need to call the removeEventListener method with the event name and the function name.<br />
+- Bubbling and capturing are the 2 models that events use to propagate<br />.
+A click on a child element will always propagate to its parents, unless you stop the propagation.<br />
+Those event listeners will be called in order, and this order is determined by the event bubbling/capturing model used.<br />
+
+Bubbling means that the event propagates from the item that was clicked (the child) up to all its parent tree, starting from the nearest one.<br />
+Capturing is the opposite: the outer event handlers are fired before the more specific handler. By default all events bubble.<br />
+You can choose to adopt event capturing by applying a third argument to addEventListener, setting it to true:<br />
+Note that first all capturing event handlers are run.<br />
+
+Then all the bubbling event handlers.<br />
+
+The order follows this principle: the DOM goes through all elements starting from the Window object, and goes to find the item that was clicked. While doing so, it calls any event handler associated to the event (capturing phase).<br />
+
+Once it reaches the target, it then repeats the journey up to the parents tree until the Window object, calling again the event handlers (bubbling phase).<br />
+You can stop the propagation by calling the stopPropagation() method of an Event, usually at the end of the event handler:<br />
+## MediaQueryList.addListener() <a name="mql" ></a>
+```
+var mql = window.matchMedia('(max-width: 600px)');
+
+function screenTest(e) {
+  if (e.matches) {
+    /* the viewport is 600 pixels wide or less */
+    para.textContent = 'This is a narrow screen — less than 600px wide.';
+    document.body.style.backgroundColor = 'red';
+  } else {
+    /* the viewport is more than than 600 pixels wide */
+    para.textContent = 'This is a wide screen — more than 600px wide.';
+    document.body.style.backgroundColor = 'blue';
+  }
+}
+
+mql.addListener(screenTest);
 ```
