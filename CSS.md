@@ -36,4 +36,4 @@ https://www.youtube.com/watch?v=FEnRpy9Xfes<br />
 <br />
 - https://codepen.io/brendamarienyc/pen/oZMxOY<br />
 - https://open.nytimes.com/bootstrap-to-css-grid-87b3f5f830e4<br />
-- https://labs.jensimmons.com/<br />
+- https://labs.jensimmons.com/

@@ -22,7 +22,7 @@ The repaint of render queue is given priority over the callback queue.<br />
 ## Hoisting <a name="hoisting"></a>
 - Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.<br />
 - In JavaScript, an undeclared variable is assigned the value undefined at execution and is also of type undefined.<br />
-- function declarations are hoisted ```function foo()``` but funtion expressions are not ``` var foo = function()```<br />
+- function declarations are hoisted ```function foo()``` but function expressions are not ``` var foo = function()```<br />
 
 ## Strict mode <a  name="strict"></a>
 Strict mode makes several changes to normal JavaScript semantics:<br />
@@ -48,8 +48,9 @@ async function fetchContent() {
 // Use the async function
 var promise = fetchContent().then(...);
 ```
-<br />
-## Event listeners <a name="js-events"></a><br />
+<!-- -->
+
+## Event listeners <a name="js-events"></a>
 
 - The addEventListener method is the most preferred way to add an event listener to window, document or any other element in the DOM.<br />
 - Sometime we don’t want an HTML element to behave in the way it is supposed to behave in default. In such a case, we can use Event.preventDefault().<br />
@@ -88,7 +89,7 @@ function screenTest(e) {
 mql.addListener(screenTest);
 ```
 <!-- -->
-<br />
+
 ## Symbols <a name="symbols"></a><br />
 
 - Every symbol value returned from Symbol() is unique.  A symbol value may be used as an identifier for object properties; this is the data type's only purpose. <br />
