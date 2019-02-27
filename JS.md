@@ -9,6 +9,7 @@
 - [Rest parameter Spread operator](#rest-spread)
 - [Object prototype](#prototype)
 - [Apply vs Call](#apply-call)
+- [Computed Property name](#computed-prop-name)
 ## Event Loop<a name="event-loop"></a>
 JavaScript is a single thread programming language. The reason we can deal with concurrency and asynchonous tasks is because the browser is much more than just the runtime. There are WebApis in the browser: DOM, XHR, setTimeout. These are effectively threads that you can make calls to. When you make a call to one of these APIs  They push your callback to the task queue. then the event loop looks at the stack and the task queue, if the stack is empty it then puts the first item of the task queue into the stack.<br />
 There reason sometimes we run code inside setTimeout(() => {}, 0); is that we want to defer its execution until the stack is clear.<br />
@@ -70,6 +71,8 @@ The order follows this principle: the DOM goes through all elements starting fro
 
 Once it reaches the target, it then repeats the journey up to the parents tree until the Window object, calling again the event handlers (bubbling phase).<br />
 You can stop the propagation by calling the stopPropagation() method of an Event, usually at the end of the event handler:<br />
+- remove event ```someElement.removeEventListener('click', myEventHandler);```
+
 ## MediaQueryList.addListener() <a name="mql" ></a>
 ```
 var mql = window.matchMedia('(max-width: 600px)');
@@ -123,3 +126,12 @@ theFunction.call(valueForThis, arg1, arg2, ...)
 - When a function (foo) declares other functions (bar and baz), the family of local variables created in foo is not destroyed when the function exits. The variables merely become invisible to the outside world. Foo can therefore cunningly return the functions bar and baz, and they can continue to read, write and communicate with each other through this closed-off family of variables ("the closure") that nobody else can meddle with, not even someone who calls foo again in future.<br />
 
 - A closure is one way of supporting first-class functions; it is an expression that can reference variables within its scope (when it was first declared), be assigned to a variable, be passed as an argument to a function, or be returned as a function result.<br />
+
+## Computed Property Name <a name="computed-prop-name"></a>
+```
+this.setState({
+  [name]: value
+});
+```
+<!-- -->
+

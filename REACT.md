@@ -4,6 +4,7 @@
 - [State](#state-hook)
 - [Effect](#effect-hook)
 - [LifeCycleCallbacks](#lifecycle)
+- [props.render](#propsrender)
 
 ## Reconciliation <a name="reconciliation"></a>
 React implements its DOM reconciliation algorithm based on two assumptions:
@@ -36,3 +37,54 @@ const [count, setCount] = useState()
 ## LifeCycle callbacks <a name="lifecycle"></a>
 - **getDerivedStateFromProps()** is invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or null to update nothing.<br /> 
 - **getSnapshotBeforeUpdate()** is invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed.
+
+## Props render <a name="propsrender"></a>
+- a render prop is a function prop that a component uses to know what to render.<br />
+- This technique makes the behavior that we need to share extremely portable<br />
+```
+class Mouse extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.state = { x: 0, y: 0 };
+  }
+
+  handleMouseMove(event) {
+    this.setState({
+      x: event.clientX,
+      y: event.clientY
+    });
+  }
+
+  render() {
+    return (
+      <div style={{ height: '100%' }} onMouseMove={this.handleMouseMove}>
+
+        {/*
+          Instead of providing a static representation of what <Mouse> renders,
+          use the `render` prop to dynamically determine what to render.
+        */}
+        {this.props.render(this.state)}
+      </div>
+    );
+  }
+}
+class MouseTracker extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Move the mouse around!</h1>
+        <Mouse render={mouse => (
+          <Cat mouse={mouse} />
+        )}/>
+      </div>
+    );
+  }
+}
+```
+
+<!-- -->
+- This pattern removes most of the issues around mixings and HOCs namely:
+- ES6 classes. Yep, not a problem. We can use render props with components that are created using ES6 classes.<br />
+- Indirection. We don’t have to wonder where our state or props are coming from. We can see them in the render prop’s argument list.<br />
+- Naming collisions. There is no automatic merging of property names, so there is no chance for a naming collision.<br />
