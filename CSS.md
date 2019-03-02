@@ -1,5 +1,6 @@
 - [Pseudo class vs Pseudo element](#pseudo)
 - [CSS grid](#cssgrid)
+- [CSS Shapes](#cssshapes)
 
 ## Pseudo class vs Pseudo element <a name="pseudo"></a>
 - Basically a pseudo-class is a selector that assists in the selection of something that cannot be expressed by a simple selector, for example :hover. A pseudo-element however allows us to create items that do not normally exist in the document tree, for example ```::after```.<br />
@@ -36,4 +37,18 @@ https://www.youtube.com/watch?v=FEnRpy9Xfes<br />
 <br />
 - https://codepen.io/brendamarienyc/pen/oZMxOY<br />
 - https://open.nytimes.com/bootstrap-to-css-grid-87b3f5f830e4<br />
-- https://labs.jensimmons.com/
+- https://labs.jensimmons.com/<br />
+
+## CSS Shapes <a name="cssshape"></a>
+- https://www.youtube.com/watch?v=pOB75oTNhw0
+```
+img {
+  float: left;
+  margin-right: 2em;
+  margin-bottom: 0.5em;
+  shape-outside: circle();
+}
+```
+
+<!-- -->
+
